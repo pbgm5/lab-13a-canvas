@@ -10,17 +10,17 @@
       function draw() {
         var sketch = document.getElementById('sketch');
         var context = sketch.getContext("2d");
-        context.fillStyle = "#ff0000";
-        context.fillRect(70, 70, 100, 100);
 
-        context.fillStyle = "#BCBF50"; // a new kinda olive green from adobe color website
+        context.fillStyle = "#468134";
+
+        for (var i = 0; i <=4; i++) {
+        context.fillRect(i * 25, 20, 20, 20);
+      } else {
+        context.fillstyle = "#0067ff"
         context.beginPath();
-        context.arc(250, 120, 50, 0, 2 * Math.PI, true);
+        context.arc(i * 50, 50, 0, 2 * Math.PI, true);
         context.closePath();
         context.fill();
-      }
+     }
 
-    </script>
-
-  </body>
-</html>
+    }
