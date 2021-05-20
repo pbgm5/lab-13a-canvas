@@ -4,16 +4,14 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body <style>
-    #sketch {
-              border:1px solid #000;
-              <canvas id="sketch" width="480" height="720"></canvas>
-    }
+  <body>
+    <canvas id="sketch" width="480" height="720"></canvas>
     <script>
       document.addEventlistener('DOMContent', main);
+
       var sketch;
       var context;
-      var circle;
+      var circle = {'x':0, 'y':100, 'r':25}
       var dx = 2;
       var fps = 10;
 
@@ -23,23 +21,24 @@
         circle = {'x':25,'y':sketch.offsetHeight / 2, 'r':25};
         animation = setinterval(animate,fps);
 
-        function animate()
+        function animate() {
         context.clearRect(0, 0, sketch.offsetWidth, sketch.offsetHeight);
-      } draw_circle(circle.x, circle.y, circle.r);
+        draw_circle(circle.x, circle.y, circle.r);
         circle.x = circle.x + dx;
         if (circle.x > sketch.offsetWidth - dx - circle.r); {
           dx = dx * -1
+        } else if (circle.x < circle.r - dx) {
+          dx = dx * -1;
         }
-        else if (circle.x < circle.r - dx) {
-        dx = dx * -1;
-  }
+   }
+
   function draw_circle(x, y, r) {
       context.beginPath();
 			context.arc(x, y, r, 0, 2 * Math.PI, true);
 			context.closePath();
 			context.fill();
-    </script>
-  </style>>
+    }
 
+    </script>
   </body>
 </html>
